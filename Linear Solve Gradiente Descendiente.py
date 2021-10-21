@@ -54,12 +54,16 @@ def gradient(x, A, b):
 	return element_1 - element_2
 
 def linear_solve(M, v, x_start, umbral, max_iter):
+    k = 0.002
     for i in range(max_iter):
         print(x_start)
-        x_start = x_start - umbral * gradient(x_start, M, v)
-    return x_start
+        x_start = x_start - k * gradient(x_start, M, v)
+        current_v = np.dot(M,x_start)
+        error_np = np.sum(np.abs(current_v-v))
+        if error_np < umbral:
+            return x_start
 
-print(linear_solve(A_coef, b_coef, x_sol, 0.002, 1000))
+print(linear_solve(A_coef, b_coef, x_sol, 0.001, 10000))
 '''
 #def linear_solve(A, b, x_start, umbral = 0.001, max_iter = 1000)
 ###
