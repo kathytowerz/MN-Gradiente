@@ -64,7 +64,7 @@ print(linear_solve(A_coef, b_coef, x_sol, 0.002, 1000))
 #def linear_solve(A, b, x_start, umbral = 0.001, max_iter = 1000)
 ###
 
-#Tasa de aprendizaje
+#Tasa de aprendizaje.
 k = 0.002 #Parámetros de ajuste o hiperparámetros
 for i in range(1000):
 	print(x_sol)
